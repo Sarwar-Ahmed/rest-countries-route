@@ -2,20 +2,21 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Countries from '../Countries/Countries';
-import { useParams } from 'react-router-dom';
-
+import CountryDetails from '../CountryDetails/CountryDetails';
 const Home = () => {
-    let {countryName} = useParams();
-    const [country, setCountry] = useState({});
+    const [country, setCountry] = useState([]);
+
     useEffect(() => {
-        fetch(`https://restcountries.eu/rest/v2/${countryName}`)
+        fetch(`https://restcountries.eu/rest/v2/all`)
         .then(res => res.json())
-        .then(data => setCountry(data))
-    }, [])
-console.log(country)
+        .then(data => setCountry(data));
+    }, []);
     return (
         <div>
-            <Countries />
+            {
+                country.map(country => <Countries country={country} key={country.name}/>)
+            }
+            
         </div>
     );
 };

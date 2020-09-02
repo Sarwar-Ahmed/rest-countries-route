@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import NoMatch from './Components/NoMatch/NoMatch';
 import Countries from './Components/Countries/Countries';
+import CountryDetails from './Components/CountryDetails/CountryDetails';
 
 function App() {
   return (
@@ -20,8 +21,11 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/country/:countryName">
+        <Route path="/countries">
           <Countries />
+        </Route>
+        <Route path="/about/:countryName">
+          <CountryDetails />
         </Route>
         <Route path="*">
           <NoMatch />
