@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link, useParams, useHistory } from 'react-router-dom';
-import { useState } from 'react';
+import React from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 const Countries = (props) => {
     // console.log(props.country);
@@ -17,7 +16,7 @@ const Countries = (props) => {
             <h2>{name}</h2>
             <p>{region}</p>
             <Link to={`/about/${name}`}>Show More Details</Link>
-            <button className="btn btn-info mt-3 mr-auto d-block" onClick={() => countryDetails(name)}>More About {name}>></button>
+            <button className="btn btn-info mt-3 mr-auto d-block" onClick={() => countryDetails(name)}>More About {name}</button>
         </div>
     );
 };
